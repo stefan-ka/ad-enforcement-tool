@@ -48,6 +48,7 @@ Enforcement is delegated to plugins, separate executables that receive the parse
 | ------------------------------------------------------------------------- | --------- | ------------------------------------------------------------------------------------------------- |
 | [`ad-plugin-archgo`](https://github.com/phi42/ad-plugin-archgo)           | Go        | Compiles `code` rules into [arch-go](https://github.com/arch-go/arch-go) tests.                   |
 | [`ad-plugin-netarchtest`](https://github.com/phi42/ad-plugin-netarchtest) | .NET / C# | Compiles `code` rules into [NetArchTest](https://github.com/BenMorris/NetArchTest) + NUnit tests. |
+| [`ad-plugin-archunit`](https://github.com/stefan-ka/ad-plugin-archunit)   | Java      | Compiles `code` rules into [ArchUnit](https://www.archunit.org/) tests.                           |
 | [`ad-plugin-fscheck`](https://github.com/phi42/ad-plugin-fscheck)         | Any       | Executes `file` rules directly against the filesystem.                                            |
 
 To author your own plugin, copy one of the starter templates in [`extras/plugin-templates/`](extras/plugin-templates/) (Go, C#, or Java) and follow the [plugin developer guide](docs/plugin-developer-guide.md).
