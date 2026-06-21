@@ -19,6 +19,8 @@ ade validate -i my-adr.rule
 ade verify   -i my-adr.rule -p fscheck
 ```
 
+> If you are using the [ADG](https://github.com/adr/ad-guidance-tool) tool, replace `ade` with `adg enforce` throughout (e.g. `adg enforce validate -i my-adr.rule`).
+
 A typical rule file:
 
 ```dsl
@@ -37,6 +39,8 @@ file "tests_exist" {
   severity error
 }
 ```
+
+> A syntax-highlighting extension for `.rule` files is available for VS Code; install `ade.vsix` from the [latest release](https://github.com/phi42/ad-enforcement-tool/releases) or see [`extras/vscode/`](extras/vscode/).
 
 For a step-by-step walkthrough (install, plugins, writing a rule, compiling, running in CI) see the [user guide](docs/user-guide.md).
 
@@ -75,6 +79,11 @@ This is how [ad-guidance-tool](https://github.com/adr/ad-guidance-tool) integrat
 - [docs/implementation.md](docs/implementation.md): internal architecture and package layout for contributors.
 - [extras/ci-templates/](extras/ci-templates/): ready-to-use CI workflow templates.
 - [extras/vscode/](extras/vscode/): VS Code syntax-highlighting extension for `.rule` files.
+
+## Examples
+
+- [ad-guidance-tool](https://github.com/adr/ad-guidance-tool): uses [`ad-plugin-fscheck`](https://github.com/phi42/ad-plugin-fscheck) and [`ad-plugin-archgo`](https://github.com/phi42/ad-plugin-archgo) plugins to enforce architectural decisions in a Go monorepo.
+- [ad-casestudy](https://github.com/phi42/ad-casestudy): uses [`ad-plugin-fscheck`](https://github.com/phi42/ad-plugin-fscheck) and [`ad-plugin-netarchtest`](https://github.com/phi42/ad-plugin-netarchtest) plugins to enforce architectural decisions in a .NET monorepo.
 
 ## License
 

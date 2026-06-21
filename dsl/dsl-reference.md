@@ -67,7 +67,7 @@ Rules are explicitly categorized by domain:
 - `code`: Code structure checks (dependencies, types, naming).
 - `custom`: Opaque blocks delegated entirely to a named plugin.
 
-The parser validates that file assertions (e.g., `path ... must exist`) only appear in `file` blocks, and code assertions (e.g., `must depend on`, `must implement`) only appear in `code` blocks. Custom block bodies are not parsed by the host at all.
+The parser validates that file assertions (e.g., `path ... must exist`) only appear in `file` blocks, and code assertions (e.g., `must depend on`, `must implement`) only appear in `code` blocks. Custom block bodies are not parsed by the host at all. A `code` block accepts exactly one assertion; use separate `code` blocks for each constraint. A `file` block may contain multiple assertions.
 
 ### Natural language syntax
 

@@ -1,6 +1,7 @@
 plugins {
     id("com.google.protobuf") version "0.9.4"
     application
+    id("org.graalvm.buildtools.native") version "0.10.4"
 }
 
 // TODO: change group to your organisation's reverse domain (e.g. "com.example").
@@ -26,7 +27,18 @@ protobuf {
     }
 }
 
-// Fat JAR so the plugin runs as a single file:
+graalvmNative {
+    binaries {
+        named("main") {
+            // TODO: update mainClass if you renamed the entry point.
+            mainClass.set("com.example.plugin.Main")
+            imageName.set("plugin")
+            buildArgs.add("--no-fallback")
+        }
+    }
+}
+
+// Fat JAR for local testing:
 //   java -jar build/libs/plugin.jar --info
 tasks.register<Jar>("fatJar") {
     archiveFileName.set("plugin.jar")
