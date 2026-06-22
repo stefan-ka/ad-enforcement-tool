@@ -41,12 +41,20 @@ PowerShell's pipeline would corrupt them.
 
 ## Integration test with `ade`
 
-ADE expects a native executable.  Wrap the JAR in a shell script on Unix, or
-use GraalVM `native-image` for a self-contained binary:
+ADE expects a native executable. Build one with the GraalVM native build tools Gradle plugin (already configured in `build.gradle.kts`):
 
 ```sh
-# Unix wrapper example
-printf '#!/bin/sh\nexec java -jar "$(dirname "$0")/plugin.jar" "$@"\n' > plugin
+./gradlew nativeCompile
+# produces build/native/nativeCompile/plugin  (or plugin.exe on Windows)
+ade plugin install my-plugin --path ./build/native/nativeCompile/plugin
+ade verify -i testdata/sample.rule -p my-plugin
+```
+
+Alternatively, wrap the fat JAR in a shell script on Unix:
+
+```sh
+./gradlew fatJar
+printf '#!/bin/sh\nexec java -jar "$(dirname "$0")/build/libs/plugin.jar" "$@"\n' > plugin
 chmod +x plugin
 ade plugin install my-plugin --path ./plugin
 ade verify -i testdata/sample.rule -p my-plugin

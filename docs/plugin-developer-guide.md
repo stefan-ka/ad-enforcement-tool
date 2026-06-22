@@ -146,7 +146,7 @@ Each template includes a `.github/workflows/release.yml` that triggers on `v*` t
 
 - Go template: uses [GoReleaser](https://goreleaser.com) with a matching `.goreleaser.yml`, cross-compiling for Linux, macOS, and Windows on both `amd64` and `arm64`.
 - C# template: uses `dotnet publish --self-contained` in a matrix across five platform/architecture combinations.
-- Java template: uses [GraalVM native-image](https://www.graalvm.org/native-image/) to compile the fat JAR into a native executable for each platform.
+- Java template: uses the [GraalVM native build tools Gradle plugin](https://graalvm.github.io/native-build-tools/latest/gradle-plugin.html) (`./gradlew nativeCompile`) to compile the project into a native executable for each platform. The `graalvmNative` block in `build.gradle.kts` sets the image name and passes `--no-fallback`; `protobuf-java` 4.x ships native-image metadata so no additional reflect configuration is needed.
 
 ### Asset naming
 

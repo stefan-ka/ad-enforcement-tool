@@ -155,6 +155,11 @@ func (v *irVisitor) VisitRuleDecl(ctx *parser.RuleDeclContext) interface{} {
 // visitAssertionStmt resolves the subject, modality, and verb phrase of an
 // assertion and writes them into ir.
 func (v *irVisitor) visitAssertionStmt(ctx *parser.AssertionStmtContext, ir *rule.Rule) {
+	// code rules carry exactly one assertion
+	if !ir.IsFileRule && ir.Kind != rule.RuleKind_RULE_UNSPECIFIED {
+		v.err = fmt.Errorf("line %d: code rule %q contains more than one assertion; split into separate code rules", ctx.GetStart().GetLine(), ir.Name)
+		return
+	}
 	ir.From = v.visitSubjectExpr(ctx.SubjectExpr())
 	if v.err != nil {
 		return
