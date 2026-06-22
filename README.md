@@ -85,6 +85,7 @@ This is how [ad-guidance-tool](https://github.com/adr/ad-guidance-tool) integrat
 
 - [ad-guidance-tool](https://github.com/adr/ad-guidance-tool): uses [`ad-plugin-fscheck`](https://github.com/phi42/ad-plugin-fscheck) and [`ad-plugin-archgo`](https://github.com/phi42/ad-plugin-archgo) plugins to enforce architectural decisions in a Go monorepo.
 - [ad-casestudy](https://github.com/phi42/ad-casestudy): uses [`ad-plugin-fscheck`](https://github.com/phi42/ad-plugin-fscheck) and [`ad-plugin-netarchtest`](https://github.com/phi42/ad-plugin-netarchtest) plugins to enforce architectural decisions in a .NET monorepo.
+- [OST Cloud Application Lab: Serverless Sample Application](https://github.com/OST-Cloud-Application-Lab/tla-sample-serverless-eda-with-sqs-queue-sample): uses [`ad-plugin-fscheck`](https://github.com/phi42/ad-plugin-fscheck), [`ad-plugin-netarchtest`](https://github.com/phi42/ad-plugin-netarchtest) and [`ad-plugin-archunit`](https://github.com/stefan-ka/ad-plugin-archunit) plugins to enforce architectural decisions in a serverless microservice application.
 
 ## License
 
